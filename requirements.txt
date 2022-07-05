@@ -1,3 +1,4 @@
 requests
-pyrogram
+Pyrogram==1.4.16
 result
+TgCrypto
