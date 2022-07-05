@@ -35,7 +35,7 @@ async def start(client,message):
 
     
 @logo.on_message(filters.command("help"))
-async def start(client,message):
+async def help(client,message):
     await message.reply_chat_action("typing")
     await message.reply("☘️ Help Commands
 
