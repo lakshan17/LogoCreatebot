@@ -95,6 +95,6 @@ async def on_off_antiarab(_, message: Message):
 
 logo.run()
 
-app.start()
+logo.start()
 LOGGER.info("Bot Work Now")
 idle()
