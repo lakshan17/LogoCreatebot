@@ -33,6 +33,17 @@ async def start(client,message):
     await message.reply_chat_action("typing")
     await message.reply("🍀 Hi I am Logo Create Bot Telegram...")
 
+    
+@logo.on_message(filters.command("help"))
+async def start(client,message):
+    await message.reply_chat_action("typing")
+    await message.reply("☘️ Help Commands
+
+ 🔸 ᴜsᴇ /logo - Make Random Logo In Your Text
+
+ 🔸 Use /logohq - Make 4K Logo In Your Text.
+
+🔸 Use /write - Write To Your Text.")
 
 #◇───────────────────────────────────────◇ 
 
