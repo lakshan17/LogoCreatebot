@@ -37,15 +37,7 @@ async def start(client,message):
 @logo.on_message(filters.command("help"))
 async def help(client,message):
     await message.reply_chat_action("typing")
-    await message.reply("
-    
-                        ☘️ Help Commands
-
- 🔸 Use/logo - Make Random Logo In Your Text
-
- 🔸 Use /logohq - Make 4K Logo In Your Text.
-
- 🔸 Use /write - Write To Your Text.")
+    await message.reply("☘️ Help Commands")
 
 #◇───────────────────────────────────────◇ 
 
