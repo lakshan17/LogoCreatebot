@@ -27,28 +27,104 @@ caption = """
 #◇───────────────────────────────────────◇ 
 
 #◇───────────────────────────────────────◇ 
-
 @logo.on_message(filters.command("start"))
-async def start(client,message):
-    await message.reply_chat_action("typing")
-    await message.reply("🍀 Hi I am Logo Create Bot Telegram...")
+async def start(client, message):
+   if message.chat.type == 'private':
+       await logo.send_message(
+               chat_id=message.chat.id,
+               text="""<b>Hey👋 {} , I'm Logo Create Bot
 
-    
+🎨I Can Create A Logo , 4k Logo
+
+Hit help button to find out more about how to use me</b>""",   
+                            reply_markup=InlineKeyboardMarkup(
+                                [[
+                                        InlineKeyboardButton(
+                                            "Help", callback_data="help"),
+                                        InlineKeyboardButton(
+                                            "Channel", url="https://t.me/Lakshan_Pathum")
+                                    ],[
+                                      InlineKeyboardButton(
+                                            "Source Code", url="https://github.com/lakshan17/LogoCreatebot")
+                                    ]]
+                            ),        
+            disable_web_page_preview=True,        
+            parse_mode="html")
+
 @logo.on_message(filters.command("help"))
-async def help(client,message):
-    await message.reply_chat_action("typing")
-    await message.reply("☘️ ʜᴇʟᴘ ᴄᴏᴍᴍᴀɴᴅꜱ
+async def help(client, message):
+    if message.chat.type == 'private':   
+        await logo.send_message(
+               chat_id=message.chat.id,
+               text="""<b>☘️ Help Commands
 
- 🔸/start- ꜱᴛᴀʀᴛ ʙᴏᴛ.
+🔸Use /logo - Make Random Logo In Your Text
+🔸Use /logohq - Make 4k Logo In Your Text
 
- 🔸 ᴜsᴇ /write - ᴡʀɪᴛᴇ ᴛᴏ ʏᴏᴜʀ ᴛᴇxᴛ
+🔸Use /write - Write To Your Text
 
- 🔸 ᴜsᴇ /logo - ᴍᴀᴋᴇ ʀᴏɴᴅᴏᴍ ʟᴏɢᴏ ɪɴ ʏᴏᴜʀ ᴛᴇxᴛ
+  ⚜This Commands Useing The Make Your Logo</b>""",
+        reply_markup=InlineKeyboardMarkup(
+                                [[
+                                        InlineKeyboardButton(
+                                            "Back ⬅", callback_data="start"),
+                                        InlineKeyboardButton(
+                                            "About ❕", callback_data="about"),
+                                  ],[
+                                        InlineKeyboardButton(
+                                            "Source Code 📦", url="https://github.com/https://github.com/lakshan17/LogoCreatebot")
+                                    ]]
+                            ),        
+            disable_web_page_preview=True,        
+            parse_mode="html")
 
- 🔸 ᴜsᴇ /logohq - ᴍᴀᴋᴇ 4ᴋ ʟᴏɢᴏ ɪɴ ʏᴏᴜʀ ᴛᴇxᴛ
+@logo.on_message(filters.command("about"))
+async def about(client, message):
+    if message.chat.type == 'private':   
+        await logo.send_message(
+               chat_id=message.chat.id,
+               text="""<b>--**About Me**-- 😎
 
- 🔸 ᴜsᴇ /glogo - ᴍᴀᴋᴇ ɢʜᴏꜱᴛɪꜱᴛ ʟᴏɢᴏ ɪɴ ʏᴏᴜʀ ᴛᴇxᴛ")
+🤖 **Name :** [Logo Create Bot](https://t.me/{})
 
+👨‍💻 **Developer :** [Lakshan](https://github.com/lakshan17)
+
+📢 **Channel :** [Lakshan Pathum](https://t.me/Lakshan_Pathum)
+
+☎️**Contact Me :** [Assistant Bot](https://t.me/Lakshan_Pathum_Bot)
+
+📝 **Language :** [Python3](https://python.org)
+
+📕 **Library :** [Pyrogram](https://pyrogram.org)
+
+🛠️ **Logo Creater Api :** [SingleDevelopers](https://t.me/SingleDevelopers)
+
+📡 **Server :** [Heroku](https://heroku.com)</b>""",
+     reply_markup=InlineKeyboardMarkup(
+                                [[
+                                        InlineKeyboardButton(
+                                            "Back ⬅", callback_data="help"),
+                                        InlineKeyboardButton(
+                                            "Source Code 📦", url="https://github.com/https://github.com/lakshan17/LogoCreatebot")
+                                    ]]
+                            ),        
+            disable_web_page_preview=True,        
+            parse_mode="html")
+            
+ @logo.on_callback_query()
+async def button(bot, update):
+      cb_data = update.data
+      if "help" in cb_data:
+        await update.message.delete()
+        await help(bot, update.message)
+      elif "about" in cb_data:
+        await update.message.delete()
+        await about(bot, update.message)
+      elif "start" in cb_data:
+        await update.message.delete()
+        await start(bot, update.message)
+
+  
 #◇───────────────────────────────────────◇ 
 
 @logo.on_message(filters.command("logo"))
