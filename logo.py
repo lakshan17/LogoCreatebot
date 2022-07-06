@@ -3,6 +3,7 @@ from pyrogram.types import Message
 from requests import get
 import os
 import requests
+from config import Config
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 API_ID = int(os.environ.get("API_ID"))
