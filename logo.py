@@ -112,19 +112,6 @@ async def about(client, message):
             disable_web_page_preview=True,        
             parse_mode="html")
             
- @logo.on_callback_query()
-async def button(bot, update):
-      cb_data = update.data
-      if "help" in cb_data:
-        await update.message.delete()
-        await help(bot, update.message)
-      elif "about" in cb_data:
-        await update.message.delete()
-        await about(bot, update.message)
-      elif "start" in cb_data:
-        await update.message.delete()
-        await start(bot, update.message)
-
   
 #◇───────────────────────────────────────◇ 
 
@@ -183,8 +170,22 @@ async def on_off_antiarab(_, message: Message):
             ]
           ),
     )
-
-
+    
+@logo.on_callback_query()
+async def button(bot, update):
+      cb_data = update.data
+      if "help" in cb_data:
+        await update.message.delete()
+        await help(bot, update.message)
+      elif "about" in cb_data:
+        await update.message.delete()
+        await about(bot, update.message)
+      elif "start" in cb_data:
+        await update.message.delete()
+        await start(bot, update.message)
+        
+        
+        
 logo.run()
 
 logo.start()
