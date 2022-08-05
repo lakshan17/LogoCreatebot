@@ -188,5 +188,4 @@ async def button(bot, update):
 logo.run()
 
 logo.start()
-LOGGER.info("Bot Work Now")
-idle()
+print("Bot Start ✅")
