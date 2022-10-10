@@ -32,7 +32,7 @@ async def start(client, message):
    if message.chat.type == 'private':
        await logo.send_message(
                chat_id=message.chat.id,
-               text="""<b>Hey👋 {message.from_user.mention} , I'm Logo Create Bot
+               text.format(message.from_user.mention)="""<b>Hey👋 {} , I'm Logo Create Bot
 
 🎨I Can Create A Logo , 4k Logo
 
