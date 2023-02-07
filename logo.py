@@ -5,9 +5,9 @@ import os
 import requests
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-API_ID = int(os.environ.get("API_ID"))
-API_HASH = os.environ.get("API_HASH")
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
+API_ID = int(os.environ.get("API_ID",10432339))
+API_HASH = os.environ.get("API_HASH","a6d7561a8ed9f505a47672c6bd8a2426")
+BOT_TOKEN = os.environ.get("BOT_TOKEN",5494032967:AAEKl5p5xY9XgWPMWn3spx2Q9hKcN4UoXMI")
 
 logo = Client("logo Bot", bot_token = BOT_TOKEN, api_id = API_ID, api_hash = API_HASH)
 
